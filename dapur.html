@@ -1,0 +1,1079 @@
+
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Layar Dapur & Kasir - Omah Kopi</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        :root {
+
+            --bg-color: #fcf8f3;
+
+            --primary-color: #4a2c2a;
+
+            --accent-color: #8c5a3c;
+
+            --light-accent: #e8d8c8;
+
+            --text-dark: #2d2424;
+
+        }
+
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+            font-family:
+                'Poppins',
+                sans-serif;
+
+        }
+
+
+        body {
+
+            background:
+                var(--bg-color);
+
+            color:
+                var(--text-dark);
+
+            padding: 20px;
+
+        }
+
+
+        .header {
+
+            background:
+                var(--primary-color);
+
+            color: white;
+
+            padding: 20px;
+
+            border-radius: 16px;
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .header h1 {
+
+            font-family:
+                'Playfair Display',
+                serif;
+
+            color:
+                #f3e5d8;
+
+            font-size:
+                22px;
+
+        }
+
+
+        .header p {
+
+            font-size:
+                12px;
+
+            margin-top:
+                4px;
+
+        }
+
+
+        .reset-btn {
+
+            background:
+                #d9534f;
+
+            color:
+                white;
+
+            border:
+                none;
+
+            padding:
+                9px 14px;
+
+            border-radius:
+                8px;
+
+            font-size:
+                12px;
+
+            font-weight:
+                700;
+
+            cursor:
+                pointer;
+
+        }
+
+
+        .orders {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fill,
+                    minmax(280px, 1fr)
+                );
+
+            gap:
+                20px;
+
+        }
+
+
+        .order-card {
+
+            background:
+                white;
+
+            border:
+                2px solid
+                var(--light-accent);
+
+            border-radius:
+                16px;
+
+            overflow:
+                hidden;
+
+            box-shadow:
+                0 8px 20px
+                rgba(74,44,42,0.08);
+
+        }
+
+
+        .order-header {
+
+            background:
+                var(--primary-color);
+
+            color:
+                white;
+
+            padding:
+                13px 16px;
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+        }
+
+
+        .table {
+
+            font-size:
+                17px;
+
+            font-weight:
+                700;
+
+            color:
+                #f3e5d8;
+
+        }
+
+
+        .time {
+
+            font-size:
+                11px;
+
+            color:
+                var(--light-accent);
+
+        }
+
+
+        .order-body {
+
+            padding:
+                16px;
+
+        }
+
+
+        .item {
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            gap:
+                10px;
+
+            padding:
+                9px 0;
+
+            border-bottom:
+                1px dashed #ddd;
+
+            font-size:
+                13px;
+
+        }
+
+
+        .item-left {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                7px;
+
+        }
+
+
+        .qty {
+
+            background:
+                var(--primary-color);
+
+            color:
+                white;
+
+            padding:
+                3px 7px;
+
+            border-radius:
+                6px;
+
+            font-size:
+                12px;
+
+            font-weight:
+                700;
+
+        }
+
+
+        .item-name {
+
+            font-weight:
+                600;
+
+            color:
+                var(--primary-color);
+
+        }
+
+
+        .total {
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            margin-top:
+                15px;
+
+            padding-top:
+                10px;
+
+            border-top:
+                2px dashed
+                var(--light-accent);
+
+            color:
+                var(--accent-color);
+
+            font-weight:
+                700;
+
+        }
+
+
+        .actions {
+
+            background:
+                #fdfaf7;
+
+            border-top:
+                1px solid
+                var(--light-accent);
+
+            padding:
+                12px 16px;
+
+        }
+
+
+        .print-btn {
+
+            width:
+                100%;
+
+            background:
+                var(--primary-color);
+
+            color:
+                white;
+
+            border:
+                none;
+
+            padding:
+                11px;
+
+            border-radius:
+                9px;
+
+            font-size:
+                12px;
+
+            font-weight:
+                700;
+
+            cursor:
+                pointer;
+
+        }
+
+
+        .empty {
+
+            grid-column:
+                1 / -1;
+
+            text-align:
+                center;
+
+            margin-top:
+                60px;
+
+            color:
+                var(--accent-color);
+
+        }
+
+
+        #receipt {
+
+            display:
+                none;
+
+        }
+
+
+        @media print {
+
+            body * {
+
+                visibility:
+                    hidden;
+
+            }
+
+
+            #receipt,
+            #receipt * {
+
+                visibility:
+                    visible;
+
+            }
+
+
+            #receipt {
+
+                display:
+                    block;
+
+                position:
+                    absolute;
+
+                left:
+                    0;
+
+                top:
+                    0;
+
+                width:
+                    80mm;
+
+                color:
+                    #000;
+
+                background:
+                    #fff;
+
+                padding:
+                    10px;
+
+                font-family:
+                    'Courier New',
+                    monospace;
+
+            }
+
+
+            .receipt-header {
+
+                text-align:
+                    center;
+
+                border-bottom:
+                    1px dashed #000;
+
+                padding-bottom:
+                    10px;
+
+                margin-bottom:
+                    10px;
+
+            }
+
+
+            .receipt-item {
+
+                display:
+                    flex;
+
+                justify-content:
+                    space-between;
+
+                font-size:
+                    11px;
+
+                margin-bottom:
+                    5px;
+
+            }
+
+
+            .receipt-total {
+
+                display:
+                    flex;
+
+                justify-content:
+                    space-between;
+
+                border-top:
+                    1px dashed #000;
+
+                margin-top:
+                    10px;
+
+                padding-top:
+                    6px;
+
+                font-weight:
+                    bold;
+
+            }
+
+
+            .receipt-footer {
+
+                text-align:
+                    center;
+
+                border-top:
+                    1px dashed #000;
+
+                margin-top:
+                    15px;
+
+                padding-top:
+                    6px;
+
+                font-size:
+                    10px;
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .header {
+
+                flex-direction:
+                    column;
+
+                align-items:
+                    stretch;
+
+                gap:
+                    15px;
+
+            }
+
+            .reset-btn {
+
+                width:
+                    100%;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="header">
+
+        <div>
+
+            <h1>
+                👨‍🍳 Layar Monitor Dapur & Kasir
+            </h1>
+
+            <p>
+                Antrean Pesanan Masuk
+            </p>
+
+        </div>
+
+
+        <button
+            class="reset-btn"
+            onclick="clearAllOrders()"
+        >
+            Reset Semua Pesanan
+        </button>
+
+    </div>
+
+
+    <div
+        id="orders"
+        class="orders"
+    >
+
+        <h3 class="empty">
+            Memuat pesanan...
+        </h3>
+
+    </div>
+
+
+    <div id="receipt"></div>
+
+
+<script>
+
+    // ==========================================
+    // SUPABASE
+    // ==========================================
+
+    const SUPABASE_URL =
+        "https://ebfzxtdumtllztgnijww.supabase.co";
+
+    const SUPABASE_KEY =
+        "sb_publishable_YVUp6Jqo66JTGVOMgD_r7w_9NAF4AZO";
+
+
+    let orders = [];
+
+
+    // ==========================================
+    // AMBIL PESANAN DARI SUPABASE
+    // ==========================================
+
+    async function loadOrders() {
+
+        try {
+
+            const response =
+                await fetch(
+                    `${SUPABASE_URL}/rest/v1/order?select=*&order=created_at.asc`,
+                    {
+                        method: "GET",
+
+                        headers: {
+                            "apikey":
+                                SUPABASE_KEY,
+
+                            "Authorization":
+                                `Bearer ${SUPABASE_KEY}`
+                        }
+                    }
+                );
+
+
+            if (!response.ok) {
+
+                const error =
+                    await response.text();
+
+                console.error(
+                    "SUPABASE ERROR:",
+                    error
+                );
+
+                document.getElementById(
+                    "orders"
+                ).innerHTML = `
+
+                    <h3 class="empty">
+                        Gagal mengambil pesanan.
+                    </h3>
+
+                `;
+
+                return;
+
+            }
+
+
+            orders =
+                await response.json();
+
+
+            renderOrders();
+
+
+        } catch (error) {
+
+            console.error(error);
+
+            document.getElementById(
+                "orders"
+            ).innerHTML = `
+
+                <h3 class="empty">
+                    Tidak dapat terhubung ke database.
+                </h3>
+
+            `;
+
+        }
+
+    }
+
+
+    // ==========================================
+    // TAMPILKAN PESANAN
+    // ==========================================
+
+    function renderOrders() {
+
+        const container =
+            document.getElementById(
+                "orders"
+            );
+
+
+        container.innerHTML = "";
+
+
+        if (orders.length === 0) {
+
+            container.innerHTML = `
+
+                <h3 class="empty">
+                    Belum Ada Pesanan Masuk...
+                </h3>
+
+            `;
+
+            return;
+
+        }
+
+
+        orders.forEach(order => {
+
+            let itemsHTML = "";
+
+            let total = 0;
+
+
+            order.items.forEach(item => {
+
+                const subtotal =
+                    Number(item.price) *
+                    Number(item.qty);
+
+
+                total += subtotal;
+
+
+                itemsHTML += `
+
+                    <div class="item">
+
+                        <div class="item-left">
+
+                            <span class="qty">
+                                ${item.qty}x
+                            </span>
+
+                            <span class="item-name">
+                                ${item.name}
+                            </span>
+
+                        </div>
+
+                        <span>
+                            Rp ${subtotal.toLocaleString("id-ID")}
+                        </span>
+
+                    </div>
+
+                `;
+
+            });
+
+
+            container.innerHTML += `
+
+                <div class="order-card">
+
+                    <div class="order-header">
+
+                        <span class="table">
+                            📍 ${order.meja}
+                        </span>
+
+                        <span class="time">
+                            ${order.jam}
+                        </span>
+
+                    </div>
+
+
+                    <div class="order-body">
+
+                        ${itemsHTML}
+
+
+                        <div class="total">
+
+                            <span>
+                                Total Tagihan
+                            </span>
+
+                            <span>
+                                Rp ${total.toLocaleString("id-ID")}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="actions">
+
+                        <button
+                            class="print-btn"
+                            onclick="printOrder(${order.id})"
+                        >
+                            🖨️ Cetak Struk & Selesai
+                        </button>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        });
+
+    }
+
+
+    // ==========================================
+    // CETAK + HAPUS PESANAN
+    // ==========================================
+
+    async function printOrder(orderId) {
+
+        const order =
+            orders.find(
+                o =>
+                    Number(o.id) ===
+                    Number(orderId)
+            );
+
+
+        if (!order) return;
+
+
+        let total = 0;
+
+        let itemsHTML = "";
+
+
+        order.items.forEach(item => {
+
+            const subtotal =
+                Number(item.price) *
+                Number(item.qty);
+
+
+            total += subtotal;
+
+
+            itemsHTML += `
+
+                <div class="receipt-item">
+
+                    <span>
+                        ${item.qty}x ${item.name}
+                    </span>
+
+                    <span>
+                        ${subtotal.toLocaleString("id-ID")}
+                    </span>
+
+                </div>
+
+            `;
+
+        });
+
+
+        const receipt =
+            document.getElementById(
+                "receipt"
+            );
+
+
+        receipt.innerHTML = `
+
+            <div class="receipt-header">
+
+                <h2>
+                    OMAH KOPI & RASA
+                </h2>
+
+                <p>
+                    ${order.meja}
+                </p>
+
+                <p>
+                    Jam: ${order.jam}
+                </p>
+
+            </div>
+
+
+            <div>
+                ${itemsHTML}
+            </div>
+
+
+            <div class="receipt-total">
+
+                <span>
+                    TOTAL
+                </span>
+
+                <span>
+                    Rp ${total.toLocaleString("id-ID")}
+                </span>
+
+            </div>
+
+
+            <div class="receipt-footer">
+
+                Terima Kasih Atas Kunjungannya!
+
+            </div>
+
+        `;
+
+
+        window.print();
+
+
+        // Hapus dari Supabase setelah print
+
+        try {
+
+            const response =
+                await fetch(
+                    `${SUPABASE_URL}/rest/v1/order?id=eq.${orderId}`,
+                    {
+                        method: "DELETE",
+
+                        headers: {
+                            "apikey":
+                                SUPABASE_KEY,
+
+                            "Authorization":
+                                `Bearer ${SUPABASE_KEY}`,
+
+                            "Prefer":
+                                "return=minimal"
+                        }
+                    }
+                );
+
+
+            if (!response.ok) {
+
+                console.error(
+                    await response.text()
+                );
+
+                return;
+
+            }
+
+
+            await loadOrders();
+
+
+        } catch (error) {
+
+            console.error(error);
+
+        }
+
+    }
+
+
+    // ==========================================
+    // RESET SEMUA
+    // ==========================================
+
+    async function clearAllOrders() {
+
+        if (!confirm(
+            "Yakin ingin menghapus semua pesanan?"
+        )) {
+
+            return;
+
+        }
+
+
+        try {
+
+            const response =
+                await fetch(
+                    `${SUPABASE_URL}/rest/v1/order?id=not.is.null`,
+                    {
+                        method: "DELETE",
+
+                        headers: {
+                            "apikey":
+                                SUPABASE_KEY,
+
+                            "Authorization":
+                                `Bearer ${SUPABASE_KEY`,
+
+                            "Prefer":
+                                "return=minimal"
+                        }
+                    }
+                );
+
+
+            if (!response.ok) {
+
+                console.error(
+                    await response.text()
+                );
+
+                alert(
+                    "Gagal menghapus pesanan."
+                );
+
+                return;
+
+            }
+
+
+            await loadOrders();
+
+
+        } catch (error) {
+
+            console.error(error);
+
+            alert(
+                "Tidak dapat terhubung ke database."
+            );
+
+        }
+
+    }
+
+
+    // ==========================================
+    // AUTO REFRESH
+    // ==========================================
+
+    loadOrders();
+
+    setInterval(
+        loadOrders,
+        2000
+    );
+
+</script>
+
+</body>
+</html>
+
